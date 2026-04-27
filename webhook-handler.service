@@ -1,0 +1,12 @@
+[Unit]
+Description=Webhook Handler
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/webhook-handler
+ExecStart=/home/ubuntu/webhook-handler/venv/bin/python /home/ubuntu/webhook-handler/webhook_handler.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

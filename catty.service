@@ -1,0 +1,13 @@
+[Unit]
+Description=Catty Reminders Application
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/catty-reminders-app
+EnvironmentFile=/etc/catty-app-env
+ExecStart=/home/ubuntu/catty-reminders-app/venv/bin/python -m uvicorn app.main:app --host 0.0.0.0 --port 8181
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
